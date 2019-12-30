@@ -20,16 +20,18 @@
     <span><a href="index.php"><img style="height:15px" src="assets/img/icon/back.png" alt="recipe thumb"></a></span>
       <span align="center">Register</span>
 		</div>
-	  </nav>
+    </nav>
+    <br><br>
 		<div class="main-div" align="center" >
       
 		<img style="margin-bottom: 25px;height:140px" src="assets/img/icon/shop1.png" alt="recipe thumb"><br>
-			<form action="index.php?t=register_proses" method="post">
+    <br><br>
+    <form action="index.php?t=register_proses" method="post">
 				<input name="nama" placeholder="Nama Toko"  type="text" class="validate">
 				<input name="email" placeholder="gaslon@gmail.com"  type="email" class="validate">
 				<input name="password" placeholder="*****" type="password" class="validate">
 				<input name="nohp" placeholder="08123456789" type="text" class="validate">
-				
+				<br><br>
 				<button>Buat Toko</button>
 			</form>
 			
