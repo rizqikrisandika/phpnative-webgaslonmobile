@@ -81,6 +81,7 @@
                                 <ul class="collapse">
                                     <li><a href="index.php?page=admin">Admin</a></li>
                                     <li><a href="index.php?page=user">User</a></li>
+                                    <li><a href="index.php?page=store">Store</a></li>
                                     <li><a href="index.php?page=productuser">Product</a></li>
                                     <li><a href="index.php?page=purchase">Purchase</a></li>
                                 </ul>

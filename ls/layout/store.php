@@ -7,7 +7,7 @@
                     <div class="col-12 mt-5">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="header-title">Data User</h4>
+                                <h4 class="header-title">Data Store</h4>
                                 <div class="data-tables datatable-dark">
                                     <table id="dataTable3" class="text-center">
                                         <thead class="text-capitalize">
@@ -15,7 +15,7 @@
                                             <th>No</th>
                                             <th>Date Time</th>
                                             <th>Photo</th>
-                                            <th>Username</th>
+                                            <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Address</th>
@@ -23,7 +23,7 @@
                                         </thead>
                                         <tbody>
                                         <?php 
-                                            $db = mysqli_query($koneksi,"SELECT * FROM pelanggan");                                               
+                                            $db = mysqli_query($koneksi,"SELECT * FROM toko");                                               
                                             $mulai = 0;
                                             $no =$mulai+1;
                                             
@@ -31,7 +31,7 @@
                                                 <tr>
                                                     <td><?php echo $no++ ?></td>
                                                     <td><?php echo $pelanggan['tanggal_daftar'];?></td>   
-                                                    <td><img src="../assets/img/profil/<?php echo $pelanggan['gambar'];?>" width="100"></td>
+                                                    <td><img src="../toko/assets/img/profil/<?php echo $pelanggan['gambar'];?>" width="100"></td>
                                                     <td><?php echo $pelanggan['nama'];?></td>
                                                     <td><?php echo $pelanggan['email'];?></td>
                                                     <td><?php echo $pelanggan['nohp'];?></td>

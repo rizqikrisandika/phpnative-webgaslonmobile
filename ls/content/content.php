@@ -71,7 +71,10 @@
                             break;
                         case 'purchase-payment':
                             include "layout/purchasepayment.php";
-                            break;					
+                            break;	
+                        case 'store':
+                            include "layout/store.php";
+                            break;				
                         default:
                             include "layout/404.php";
                             break;
