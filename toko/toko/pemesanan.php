@@ -64,13 +64,16 @@
                         <td>Rp.<?php echo number_format( $cart['total_pembelian']);?></td>
                         <td><?php echo $cart['alamat']; ?></td>
                         <td>
-                            <?php if($cart['status_pembelian']!=="Di kirim"): ?>
-                                <div>
+                            <?php if($cart['status_pembelian']=="Di kirim"): ?>
+                            <a href="index.php?t=detail&id=<?php echo $cart['id_pembelian'] ?>" class="btn-group">Detail</a>
+                            <a href="index.php?t=acc_done&id=<?php echo $cart['id_pembelian'] ?>">Done</a>
+                            <?php elseif($cart['status_pembelian']=="Selesai"):?>
+                            <a href="index.php?t=detail&id=<?php echo $cart['id_pembelian'] ?>" class="btn-group">Detail</a>
+                        <?php else:?>
+                        <div>
                                 <a href="index.php?t=acc_pemesanan&id=<?php echo $cart['id_pembelian'] ?>">Accept</a>
                                 </div>
                                 <br>
-                            <a href="index.php?t=detail&id=<?php echo $cart['id_pembelian'] ?>" class="btn-group">Detail</a>
-                        <?php else:?>
                             <a href="index.php?t=detail&id=<?php echo $cart['id_pembelian'] ?>" class="btn-group">Detail</a>
                             <?php endif?>
                         </td>

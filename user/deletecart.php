@@ -3,5 +3,5 @@
     unset($_SESSION['cart'][$id_produk]);
 
     echo "<script>alert('Product has been deleted');</script>";
-    header('location:index.php?p=store');
+    echo "<script>location='index.php?p=store'</script>";
 ?>
