@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 29, 2019 at 06:09 PM
+-- Generation Time: Dec 30, 2019 at 09:25 AM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -57,7 +57,7 @@ CREATE TABLE `pelanggan` (
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `nohp` varchar(12) NOT NULL,
-  `alamat` varchar(100) NOT NULL,
+  `alamat` varchar(100) DEFAULT NULL,
   `gambar` varchar(255) DEFAULT NULL,
   `tanggal_daftar` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -67,7 +67,8 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `email`, `password`, `nohp`, `alamat`, `gambar`, `tanggal_daftar`) VALUES
-(1, 'rizqikrisandika', 'rizqikrisandika990@gmail.com', '01aad4b248d8fa31ff08455ed4c72006', '089523269898', 'Perumahan Taman Sedayu 3, Blok G12', NULL, '2019-12-28 16:44:14');
+(1, 'rizqikrisandika', 'rizqikrisandika990@gmail.com', '01aad4b248d8fa31ff08455ed4c72006', '089523269898', 'Perumahan Taman Sedayu 3, Blok G12', NULL, '2019-12-28 16:44:14'),
+(2, 'Alnova Defario', 'rizqialnova@gmail.com', '01aad4b248d8fa31ff08455ed4c72006', '081228214411', 'Perumahan atas gunung blok a1', 'download (4).jpeg', '2019-12-30 14:46:38');
 
 -- --------------------------------------------------------
 
@@ -90,8 +91,8 @@ CREATE TABLE `pembelian` (
 --
 
 INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `id_toko`, `tanggal_pembelian`, `total_pembelian`, `status_pembelian`, `alamat`) VALUES
-(1, 1, 1, '2019-12-29 14:24:16', 12000, 'Di kirim', 'Perumahan Taman Sedayu 3, Blok G12'),
-(2, 1, 1, '2019-12-29 15:31:56', 209000, 'Di kirim', 'Perumahan Taman Sedayu 3, Blok G12');
+(1, 1, 2, '2019-12-30 07:44:25', 178000, 'Di kirim', 'Perumahan Taman Sedayu 3, Blok G12'),
+(2, 2, 2, '2019-12-30 07:47:25', 12000, 'Di kirim', 'Perumahan atas gunung blok a1');
 
 -- --------------------------------------------------------
 
@@ -114,10 +115,8 @@ CREATE TABLE `pembelian_produk` (
 --
 
 INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produk`, `jumlah`, `nama_produk`, `foto_produk`, `harga_produk`) VALUES
-(1, 1, 4, 1, 'Aqua Galon', 'img_20191228154043.png', 12000),
-(2, 2, 1, 2, 'Elpiji 3kg', 'img_20191228115633.png', 29000),
-(3, 2, 3, 1, 'gas 12kg', 'img_20191228140612.png', 139000),
-(4, 2, 4, 1, 'Aqua Galon', 'img_20191228154043.png', 12000);
+(1, 1, 2, 1, 'Bright gas 12kg', 'img_20191230084000.png', 178000),
+(2, 2, 3, 1, 'Aqua galon', 'img_20191230084210.png', 12000);
 
 -- --------------------------------------------------------
 
@@ -131,8 +130,8 @@ CREATE TABLE `produk` (
   `tanggal_produk` timestamp NOT NULL DEFAULT current_timestamp(),
   `nama_produk` varchar(50) NOT NULL,
   `harga_produk` int(11) NOT NULL,
-  `foto_produk` varchar(100) DEFAULT NULL,
-  `stok_produk` int(11) DEFAULT NULL
+  `foto_produk` varchar(100) NOT NULL,
+  `stok_produk` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -140,9 +139,11 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `id_toko`, `tanggal_produk`, `nama_produk`, `harga_produk`, `foto_produk`, `stok_produk`) VALUES
-(1, 1, '2019-12-28 10:56:33', 'Elpiji 3kg', 29000, 'img_20191228115633.png', 3),
-(3, 1, '2019-12-28 13:06:12', 'gas 12kg', 139000, 'img_20191228140612.png', 5),
-(4, 1, '2019-12-28 14:40:43', 'Aqua Galon', 12000, 'img_20191228154043.png', 5);
+(1, 1, '2019-12-30 07:37:36', 'gas 3KG', 28000, 'img_20191230083736.png', 10),
+(2, 2, '2019-12-30 07:40:00', 'Bright gas 12kg', 178000, 'img_20191230084000.png', 4),
+(3, 2, '2019-12-30 07:42:10', 'Aqua galon', 12000, 'img_20191230084210.png', 19),
+(4, 1, '2019-12-30 07:43:04', 'Gas 12kg', 139000, 'img_20191230084304.png', 6),
+(5, 3, '2019-12-30 08:11:55', 'Gas 12kg', 139000, 'img_20191230091155.png', 15);
 
 -- --------------------------------------------------------
 
@@ -165,8 +166,9 @@ CREATE TABLE `toko` (
 --
 
 INSERT INTO `toko` (`id_toko`, `nama`, `email`, `nohp`, `password`, `alamat`, `gambar`) VALUES
-(1, 'Toko Barokah', 'tokobarokah@gmail.com', '089523269898', '01aad4b248d8fa31ff08455ed4c72006', 'Jalan Kenangan Mantan KM 0', 'img_20191228115604.png'),
-(2, 'Toko Heru', 'tokoheru@gmail.com', '081228214411', '01aad4b248d8fa31ff08455ed4c72006', NULL, NULL);
+(1, 'Toko Barokah', 'tokobarokah@gmail.com', '089523269897', '01aad4b248d8fa31ff08455ed4c72006', 'Jalan Kenangan Mantan KM 1', 'img_20191228115604.png'),
+(2, 'Toko Heru', 'tokoheru@gmail.com', '081228214411', '01aad4b248d8fa31ff08455ed4c72006', 'Kaliurang tugu udang', 'img_20191230073703.png'),
+(3, 'Toko Citra mart', 'citramart@gmail.com', '08955223432', '01aad4b248d8fa31ff08455ed4c72006', 'Di amikom', 'img_20191230091125.png');
 
 --
 -- Indexes for dumped tables
@@ -227,7 +229,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `pelanggan`
 --
 ALTER TABLE `pelanggan`
-  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pelanggan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pembelian`
@@ -239,19 +241,19 @@ ALTER TABLE `pembelian`
 -- AUTO_INCREMENT for table `pembelian_produk`
 --
 ALTER TABLE `pembelian_produk`
-  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `toko`
 --
 ALTER TABLE `toko`
-  MODIFY `id_toko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_toko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
