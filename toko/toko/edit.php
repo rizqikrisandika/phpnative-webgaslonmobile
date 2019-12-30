@@ -30,6 +30,7 @@
   							$db = mysqli_query($koneksi,"SELECT * FROM produk where id_produk=$id");
 							$data = mysqli_fetch_assoc($db);
 					?>
+					<br><br>
 	<div class="parent-pwafire">
 		<div class="profil">
 			<?php if ($data["foto_produk"]!=null) {?>
@@ -40,6 +41,7 @@
 				alt="recipe thumb"> <?php } ?>
 		</div>
 	</div>
+	<br><br>
 	<div class="main-div" align="center">
 
 		<form action="index.php?t=produk_update" method="post" enctype="multipart/form-data">
@@ -49,6 +51,7 @@
 			<input name="nama" value="<?php echo $data['nama_produk']?>" type="text" class="validate" >
 			<input name="harga" value="<?php echo $data['harga_produk']?>" type="number" class="validate" >
 			<input name="stok" value="<?php echo $data['stok_produk']?>" type="number" class="validate">
+			<br><br>
 			<button>Save</button>
 		</form>
 

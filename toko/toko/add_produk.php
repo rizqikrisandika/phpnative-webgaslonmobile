@@ -30,12 +30,13 @@
 	
 	<div class="main-div" align="center">
 
-		<div style="margin-top:120px;">
+		<div style="margin-top:30px;">
         <form method="post" enctype="multipart/form-data">
 			<input name="gambar" value="" type="file" class="validate">
 			<input name="nama" placeholder="Nama" type="text" class="validate">
 			<input name="harga" placeholder="Harga" type="number" class="validate">
 			<input name="stok"   placeholder="Stok" type="number" class="validate">
+			<br><br>
 			<button name="save">Save</button>
 		</form>
         </div>

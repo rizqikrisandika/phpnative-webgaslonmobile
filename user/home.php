@@ -50,7 +50,7 @@
 			<li><a href="about.html" class="waves-effect">Help</a></li>
 			<li><a href="index.php?p=logout" class="waves-effect">Logout</a></li>
 		  </ul>
-
+		  <br><br>
 		  <div class="parent-pwafire">
 		  
 			<div class="row">
@@ -66,6 +66,7 @@
 				<img style="border-radius:50%; width:100px; height:100px" src="assets/img/profil/man.png" alt="recipe thumb"> <?php } ?>
 			 <h4 style="text-align: center;"><?php echo $data['nama'] ?></h4>
 			 </div>
+			 <br><br>
 			 <a href="index.php?p=store">
 			  <div class="col-lg-4 col-sm-12">
 			   <div class="card hovercard">
@@ -132,9 +133,11 @@
 		<span align="center">Login</span>
 		</div>
 	  </nav>
+	  <br><br><br><br>
 		<div class="main-div" align="center" >
 		<img style="margin-bottom: 25px;height:140px" src="assets/img/profil/login.png" alt="recipe thumb"><br>
-			<form action="index.php?p=login_proses" method="post">
+		<br><br>
+		<form action="index.php?p=login_proses" method="post">
 				<input name="email" placeholder="Email"  type="email" class="validate">
 				
 				<input name="password" placeholder="*****" type="password" class="validate">

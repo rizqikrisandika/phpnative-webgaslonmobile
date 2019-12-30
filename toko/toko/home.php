@@ -54,7 +54,7 @@
 		<li><a href="about.html" class="waves-effect">Help</a></li>
 		<li><a href="index.php?t=logout" class="waves-effect">Logout</a></li>
 	</ul>
-<br>
+<br><br><br>
 	<div class="parent-pwafire">
 
 		<div class="row">
@@ -80,6 +80,7 @@
 
 	</div>
 	</div>
+	<br><br>
 
 	<div class="row">
 		<div class="parent-pwafire">
@@ -120,8 +121,10 @@
 			<span align="center">Login</span>
 		</div>
 	</nav>
+	<br><br><br><br>
 	<div class="main-div" align="center">
 		<img style="margin-bottom: 25px;height:140px" src="assets/img/icon/shop1.png" alt="recipe thumb"><br>
+		<br><br>
 		<form action="index.php?t=login_proses" method="post">
 			<input name="email" placeholder="Email" type="email" class="validate">
 
