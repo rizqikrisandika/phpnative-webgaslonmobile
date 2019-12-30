@@ -61,10 +61,10 @@
 							$data = mysqli_fetch_assoc($db);
 					?>
 			   <?php if ($data["gambar"]!=null) {?>
-			  <img style="border-radius:50%; width:100px; height:100px" src="assets/img/profil/<?php echo $data['gambar']; ?>" alt="recipe thumb">
+				<a href="index.php?p=profil"><img style="border-radius:50%; width:100px; height:100px" src="assets/img/profil/<?php echo $data['gambar']; ?>" alt="recipe thumb"></a>
 			  <?php }else{ ?>
-				<img style="border-radius:50%; width:100px; height:100px" src="assets/img/profil/man.png" alt="recipe thumb"> <?php } ?>
-			 <h4 style="text-align: center;"><?php echo $data['nama'] ?></h4>
+				<a href="index.php?p=profil"><img style="border-radius:50%; width:100px; height:100px" src="assets/img/profil/man.png" alt="recipe thumb"> <?php } ?></a>
+			 <h4 style="text-align: center;"><a href="index.php?p=profil"><?php echo $data['nama'] ?></a></h4>
 			 </div>
 			 <br><br>
 			 <a href="index.php?p=store">

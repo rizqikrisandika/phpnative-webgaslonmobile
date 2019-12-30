@@ -49,8 +49,8 @@
 			<input name="id" value="<?php echo $data['id_pelanggan']?>" type="hidden" class="validate">
 			<input name="nama" value="<?php echo $data['nama']?>" type="text" class="validate" disabled>
 			<input name="email" value="<?php echo $data['email']?>" type="email" class="validate" disabled>
-			<input name="nohp" value="<?php echo $data['nohp']?>" type="text" class="validate">
-			<input name="alamat" value="<?php echo $data['alamat']?>" type="text" class="validate">
+			<input name="nohp" value="<?php echo $data['nohp']?>" placeholder="Phone" type="text" class="validate">
+			<input name="alamat" value="<?php echo $data['alamat']?>" placeholder="Address" type="text" class="validate">
 			<br><br>
 			<button>Save</button>
 		</form>
