@@ -35,6 +35,9 @@ $detail = $ambil->fetch_assoc();
                         <p>
                             Status : <?php echo $detail['status_pembelian'];?>
                         </p>
+                        <p>
+                            Tujuan : <?php echo $detail['alamat_pembelian'];?>
+                        </p>
                         <br><br>
                         <div class="single-table">
                             <div class="table-responsive">
