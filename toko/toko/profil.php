@@ -26,7 +26,7 @@
 	</nav>
 	<?php
 						require "config/koneksi.php";
-  							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['username']."'");
+  							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['email']."'");
 							$data = mysqli_fetch_assoc($db);
 					?>
 	<div class="parent-pwafire">

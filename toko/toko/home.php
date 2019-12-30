@@ -19,7 +19,7 @@
 	<!-- top nav -->
 
 	<?php
-	if (isset($_SESSION["username"])) {?>
+	if (isset($_SESSION["email"])) {?>
 	<nav class="z-depth-0">
 		<div class="nav-wrapper container">
 			<span class="right"><a href="index.php">Gaslon Toko</span></a>
@@ -32,14 +32,14 @@
 	<!-- side nav -->
 	<?php
 						require "config/koneksi.php";
-  							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['username']."'");
-							$data = mysqli_fetch_assoc($db);
+  							$db1 = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['email']."'");
+							$data1 = mysqli_fetch_assoc($db1);
 					?>
 	<ul id="side-menu" class="sidenav side-menu">
 		<li><a href="" class="subheader">
-				<?php if ($data["gambar"]!=null) {?>
+				<?php if ($data1["gambar"]!=null) {?>
 				<img style="border-radius:50%; width:100px; height:100px"
-					src="assets/img/profil/<?php echo $data['gambar']; ?>" alt="recipe thumb">
+					src="assets/img/profil/<?php echo $data1['gambar']; ?>" alt="recipe thumb">
 				<?php }else{ ?>
 				<img style="border-radius:50%; width:100px; height:100px" src="assets/img/icon/shop1.png"
 					alt="recipe thumb"> <?php } ?>
@@ -47,21 +47,21 @@
 					<img style="height: 24px;" src="assets/img/icon/wallet.png" alt="recipe thumb"> RP. 100.000
 				</div>
 			</a></li>
-		<h5 style="margin-left:10px"><a href="index.php?t=profil"> <?php echo $data['nama'] ?></a></h5>
+		<h5 style="margin-left:10px"><a href="index.php?t=profil"> <?php echo $data1['nama'] ?></a></h5>
 		<li><a href="index.php?t=home" class="waves-effect">Home</a></li>
 		<li><a href="about.html" class="waves-effect">Settings</a></li>
 		<li><a href="contact.html" class="waves-effect">Contacts Us</a></i>
 		<li><a href="about.html" class="waves-effect">Help</a></li>
 		<li><a href="index.php?t=logout" class="waves-effect">Logout</a></li>
 	</ul>
-
+<br>
 	<div class="parent-pwafire">
 
 		<div class="row">
-			<div class="profil">
+			<div class="center">
 				<?php
 						require "config/koneksi.php";
-  							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['username']."'");
+  							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['email']."'");
 							$data = mysqli_fetch_assoc($db);
 					?>
 				<?php if ($data["gambar"]!=null) {?>

@@ -18,12 +18,12 @@
 
     <?php
 						require "config/koneksi.php";
-  							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['username']."'");
+  							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['email']."'");
 							$data = mysqli_fetch_assoc($db);
 					?>
 
     <?php
-	if (isset($_SESSION["username"])) {?>
+	if (isset($_SESSION["email"])) {?>
     <nav class="z-depth-0">
         <div class="nav-wrapper container">
             <span><a href="index.php"><img style="height:15px" src="assets/img/icon/back.png"
@@ -35,7 +35,7 @@
 
     <div class="parent-pwafire">
         <div class="row">
-        <a href="index.php?t=add_produk&id=<?php $data['id_toko']; ?>" class="btn-flat"
+        <a href="index.php?t=add_produk&id=<?php echo $data['id_toko']; ?>" class="btn-flat"
                     style="background: #98b0ff;color:white">Add Produk</a>
 
                 <br>
@@ -53,7 +53,7 @@
 
     <div class="recipes container grey-text text-darken-1">
             <?php
-				$db2 = mysqli_query($koneksi,"SELECT * FROM produk where id_toko=$data[id_toko]");
+				$db2 = mysqli_query($koneksi,"SELECT * FROM produk where id_toko = $data[id_toko]");
             ?>
 
 

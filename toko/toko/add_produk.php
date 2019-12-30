@@ -25,23 +25,18 @@
 		</div>
 	</nav>
 	<?php
-                        require "config/koneksi.php";
-                        $db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['username']."'");
-							$data = mysqli_fetch_assoc($db);
-
-					?>
+		require "config/koneksi.php";
+	?>
 	
 	<div class="main-div" align="center">
 
 		<div style="margin-top:120px;">
-        <form action="index.php?t=add_produk_proses" method="post" enctype="multipart/form-data">
+        <form method="post" enctype="multipart/form-data">
 			<input name="gambar" value="" type="file" class="validate">
-
-			<input name="id"  value="<?php echo $data['id_toko']; ?>" type="hidden" class="validate">
-			<input name="nama" placeholder="Nama" value="" type="text" class="validate">
+			<input name="nama" placeholder="Nama" type="text" class="validate">
 			<input name="harga" placeholder="Harga" type="number" class="validate">
 			<input name="stok"   placeholder="Stok" type="number" class="validate">
-			<button>Save</button>
+			<button name="save">Save</button>
 		</form>
         </div>
 
@@ -53,3 +48,30 @@
 </body>
 
 </html>
+
+<?php
+
+	$id_toko = $_GET['id'];
+      if(isset($_POST['save']))
+	  {
+		if($_FILES['gambar']['error']==0){
+        $nama = $_POST['nama'];
+        $harga = $_POST['harga'];
+        $stok = $_POST['stok'];
+        $img = $_FILES['gambar'];
+        $new_img = 'img_'.date('YmdHis').'.png';
+
+
+        if(copy($img['tmp_name'],"assets/img/produk/".$new_img)){
+           mysqli_query($koneksi,"INSERT INTO produk(id_toko,nama_produk,harga_produk,foto_produk,stok_produk) 
+		   values ('$id_toko','$nama','$harga','$new_img','$stok')");
+		   
+		   echo "<script>alert('Add Product Succes')</script>";
+		   echo "<script>location='index.php?t=produk'</script>";
+		   exit();
+			}
+		}
+	  }
+
+
+              

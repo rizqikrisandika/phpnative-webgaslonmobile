@@ -17,7 +17,7 @@ $data = mysqli_fetch_array($db);
 $cek = mysqli_num_rows($db);
  
 if($cek != FALSE){
-	$_SESSION['username'] = $data['email'];
+	$_SESSION['email'] = $data['email'];
 	
 	header("location:index.php");
 }else{

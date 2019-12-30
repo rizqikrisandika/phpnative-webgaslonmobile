@@ -26,7 +26,7 @@
     </nav>
     <?php
 						require "config/koneksi.php";
-  							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['username']."'");
+  							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['email']."'");
 							$data = mysqli_fetch_assoc($db);
 					?>
 
@@ -65,7 +65,10 @@
                         <td><?php echo $cart['alamat']; ?></td>
                         <td>
                             <?php if($cart['status_pembelian']!=="Di kirim"): ?>
-                            <form action="" method="post"><button name="accept" >Accept</button></form>
+                                <div>
+                                <a href="index.php?t=acc_pemesanan&id=<?php echo $cart['id_pembelian'] ?>">Accept</a>
+                                </div>
+                                <br>
                             <a href="index.php?t=detail&id=<?php echo $cart['id_pembelian'] ?>" class="btn-group">Detail</a>
                         <?php else:?>
                             <a href="index.php?t=detail&id=<?php echo $cart['id_pembelian'] ?>" class="btn-group">Detail</a>
@@ -88,12 +91,3 @@
 
 </html>
 
-<?php
-
-    if(isset($_POST['accept'])){
-        mysqli_query($koneksi,"UPDATE pembelian SET status_pembelian='Di kirim' WHERE id_pembelian='$id_pembelian'");
-        echo "<script>alert('Succes')</script>";
-        echo "<script>location='index.php?t=home'</script>";
-    }
-
-?>

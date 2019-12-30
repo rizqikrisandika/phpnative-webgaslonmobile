@@ -23,7 +23,7 @@
 	  </nav>
 	   <?php
 						require "config/koneksi.php";
-  							$db = mysqli_query($koneksi,"SELECT * FROM pelanggan where email='".$_SESSION['user_name']."'");
+  							$db = mysqli_query($koneksi,"SELECT * FROM pelanggan where email='".$_SESSION['email']."'");
 							$data = mysqli_fetch_assoc($db);
 					?>
 	    <div class="recipes container grey-text text-darken-1">
