@@ -42,7 +42,7 @@ $detail = $ambil->fetch_assoc();
 
         <div>
         <h6>Pemesan: <?php echo $detail['nama'] ?></h6>
-        <h6>Alamat: <?php echo $detail['alamat'] ?></h6>
+        <h6>Alamat: <?php echo $detail['alamat_pembelian'] ?></h6>
         <h6>Status: <?php echo $detail['status_pembelian'] ?></h6>
         </div>
         <br>

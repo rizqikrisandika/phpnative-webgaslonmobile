@@ -62,7 +62,7 @@
                         <td><?php echo $cart['nama'];?></td>
                         <td><?php echo $cart['tanggal_pembelian'];?></td>
                         <td>Rp.<?php echo number_format( $cart['total_pembelian']);?></td>
-                        <td><?php echo $cart['alamat']; ?></td>
+                        <td><?php echo $cart['alamat_pembelian']; ?></td>
                         <td>
                             <?php if($cart['status_pembelian']=="Di kirim"): ?>
                             <a href="index.php?t=detail&id=<?php echo $cart['id_pembelian'] ?>" class="btn-group">Detail</a>

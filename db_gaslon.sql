@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 30, 2019 at 11:40 AM
+-- Generation Time: Dec 30, 2019 at 01:24 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -67,7 +67,7 @@ CREATE TABLE `pelanggan` (
 --
 
 INSERT INTO `pelanggan` (`id_pelanggan`, `nama`, `email`, `password`, `nohp`, `alamat`, `gambar`, `tanggal_daftar`) VALUES
-(1, 'rizqikrisandika', 'rizqikrisandika990@gmail.com', '01aad4b248d8fa31ff08455ed4c72006', '089523269898', 'Perumahan Taman Sedayu 3, Blok G12', 'download (8).jpeg', '2019-12-28 16:44:14'),
+(1, 'rizqikrisandika', 'rizqikrisandika990@gmail.com', '01aad4b248d8fa31ff08455ed4c72006', '089523269898', 'Perumahan Taman sedayu 3', 'download (8).jpeg', '2019-12-28 16:44:14'),
 (2, 'Alnova Defario', 'rizqialnova@gmail.com', '01aad4b248d8fa31ff08455ed4c72006', '081228214411', 'Perumahan atas gunung blok a1', 'download (4).jpeg', '2019-12-30 14:46:38');
 
 -- --------------------------------------------------------
@@ -83,17 +83,21 @@ CREATE TABLE `pembelian` (
   `tanggal_pembelian` timestamp NOT NULL DEFAULT current_timestamp(),
   `total_pembelian` int(11) NOT NULL,
   `status_pembelian` varchar(20) NOT NULL DEFAULT 'Diproses',
-  `alamat` varchar(255) DEFAULT NULL
+  `alamat_pembelian` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pembelian`
 --
 
-INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `id_toko`, `tanggal_pembelian`, `total_pembelian`, `status_pembelian`, `alamat`) VALUES
+INSERT INTO `pembelian` (`id_pembelian`, `id_pelanggan`, `id_toko`, `tanggal_pembelian`, `total_pembelian`, `status_pembelian`, `alamat_pembelian`) VALUES
 (1, 1, 2, '2019-12-30 07:44:25', 178000, 'Di kirim', 'Perumahan Taman Sedayu 3, Blok G12'),
 (2, 2, 2, '2019-12-30 07:47:25', 12000, 'Di kirim', 'Perumahan atas gunung blok a1'),
-(3, 1, 1, '2019-12-30 09:05:44', 28000, 'Selesai', 'Perumahan Taman Sedayu 3, Blok G12');
+(3, 1, 1, '2019-12-30 09:05:44', 28000, 'Selesai', 'Perumahan Taman Sedayu 3, Blok G12'),
+(4, 1, 1, '2019-12-30 11:56:13', 139000, 'Diproses', ''),
+(5, 1, 1, '2019-12-30 11:57:51', 28000, 'Diproses', 'Perumahan Taman Elang'),
+(6, 1, 1, '2019-12-30 12:07:45', 139000, 'Diproses', 'Perumahan Taman Elang'),
+(7, 1, 1, '2019-12-30 12:22:16', 139000, 'Diproses', 'Perumahan Taman sedayu 3');
 
 -- --------------------------------------------------------
 
@@ -118,7 +122,11 @@ CREATE TABLE `pembelian_produk` (
 INSERT INTO `pembelian_produk` (`id_pembelian_produk`, `id_pembelian`, `id_produk`, `jumlah`, `nama_produk`, `foto_produk`, `harga_produk`) VALUES
 (1, 1, 2, 1, 'Bright gas 12kg', 'img_20191230084000.png', 178000),
 (2, 2, 3, 1, 'Aqua galon', 'img_20191230084210.png', 12000),
-(3, 3, 1, 1, 'gas 3KG', 'img_20191230083736.png', 28000);
+(3, 3, 1, 1, 'gas 3KG', 'img_20191230083736.png', 28000),
+(4, 4, 4, 1, 'Gas 12kg', 'img_20191230084304.png', 139000),
+(5, 5, 1, 1, 'gas 3KG', 'img_20191230083736.png', 28000),
+(6, 6, 4, 1, 'Gas 12kg', 'img_20191230084304.png', 139000),
+(7, 7, 4, 1, 'Gas 12kg', 'img_20191230084304.png', 139000);
 
 -- --------------------------------------------------------
 
@@ -141,10 +149,10 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `id_toko`, `tanggal_produk`, `nama_produk`, `harga_produk`, `foto_produk`, `stok_produk`) VALUES
-(1, 1, '2019-12-30 07:37:36', 'gas 3KG', 28000, 'img_20191230083736.png', 9),
+(1, 1, '2019-12-30 07:37:36', 'gas 3KG', 28000, 'img_20191230083736.png', 8),
 (2, 2, '2019-12-30 07:40:00', 'Bright gas 12kg', 178000, 'img_20191230084000.png', 4),
 (3, 2, '2019-12-30 07:42:10', 'Aqua galon', 12000, 'img_20191230084210.png', 19),
-(4, 1, '2019-12-30 07:43:04', 'Gas 12kg', 139000, 'img_20191230084304.png', 7),
+(4, 1, '2019-12-30 07:43:04', 'Gas 12kg', 139000, 'img_20191230084304.png', 4),
 (5, 3, '2019-12-30 08:11:55', 'Gas 12kg', 139000, 'img_20191230091155.png', 15);
 
 -- --------------------------------------------------------
@@ -238,13 +246,13 @@ ALTER TABLE `pelanggan`
 -- AUTO_INCREMENT for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pembelian` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `pembelian_produk`
 --
 ALTER TABLE `pembelian_produk`
-  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pembelian_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `produk`

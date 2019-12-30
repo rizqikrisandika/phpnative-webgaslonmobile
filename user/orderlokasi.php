@@ -51,7 +51,11 @@
             <input name="total" value="<?php echo $totalbelanja?>" type="hidden" class="validate">
         <form action="" method="post">    
             <br>
+            <?php if($data['alamat']==NULL): ?>
+            <input name="alamat2" placeholder="Address" type="text" class="validate">
+            <?php else:?>
             <input name="alamat" placeholder="Address" value="<?php  echo $data['alamat']?>" type="text" class="validate">
+            <?php endif ?>
             <button name="order">Order Sekarang</button>
         </form>
         
@@ -70,10 +74,18 @@
 	if(isset($_POST["order"])){
 	$id_pelanggan = $data['id_pelanggan'];
     $total_pembelian = $totalbelanja;
-    $alamat = $data['alamat'];
+    $alamat = $_POST['alamat'];
+    $alamat2 = $_POST['alamat2'];
     $id_toko = $cart['id_toko'];
-	mysqli_query($koneksi,"INSERT INTO pembelian(id_pelanggan,id_toko,total_pembelian,alamat)
-	VALUES ('$id_pelanggan',$id_toko,'$total_pembelian','$alamat')");
+
+    if($data['alamat']==NULL){
+        mysqli_query($koneksi,"INSERT INTO pembelian(id_pelanggan,id_toko,total_pembelian,alamat_pembelian)
+	    VALUES ('$id_pelanggan',$id_toko,'$total_pembelian','$alamat2')");
+    }else{
+        mysqli_query($koneksi,"INSERT INTO pembelian(id_pelanggan,id_toko,total_pembelian,alamat_pembelian)
+        VALUES ('$id_pelanggan',$id_toko,'$total_pembelian','$alamat')");
+    }
+	
 
 	$id_pembelian_barusan = $koneksi->insert_id;
 
