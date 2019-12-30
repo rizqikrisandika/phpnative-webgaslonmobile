@@ -58,7 +58,7 @@
                             while ($nota = mysqli_fetch_array($db)) { ?>
                         <tr>
                             <td><?php echo $nota['nama_produk']; ?></td>
-                            <td><img src="toko/assets/img/produk/<?php echo $nota['foto_produk'];?>" width="100"></td>
+                            <td><img src="toko/assets/img/produk/<?php echo $nota['foto_produk'];?>" width="60"></td>
                             <td>RP. <?php echo number_format($nota['harga_produk']);?></td>
                             <td><?php echo $nota['jumlah']; ?></td>
                             <td>
@@ -67,6 +67,10 @@
                         </tr>
                         <?php } ?>
                 </tbody>
+                <tr>
+                        <th class="text center-align" colspan="4">Total</th>
+                        <th>Rp. <?php echo number_format($cart['total_pembelian']);?></th>
+                    </tr>
 
             </table>
 

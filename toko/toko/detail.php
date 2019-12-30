@@ -41,8 +41,9 @@ $detail = $ambil->fetch_assoc();
         <div class="row">
 
         <div>
-        <h5>Pemesan: <?php echo $detail['nama'] ?></h5>
-        <h5>Alamat: <?php echo $detail['alamat'] ?></h5>
+        <h6>Pemesan: <?php echo $detail['nama'] ?></h6>
+        <h6>Alamat: <?php echo $detail['alamat'] ?></h6>
+        <h6>Status: <?php echo $detail['status_pembelian'] ?></h6>
         </div>
         <br>
 
@@ -71,7 +72,7 @@ $detail = $ambil->fetch_assoc();
                             while ($nota = mysqli_fetch_array($db)) { ?>
                         <tr>
                             <td><?php echo $nota['nama_produk']; ?></td>
-                            <td><img src="assets/img/produk/<?php echo $nota['foto_produk'];?>" width="100"></td>
+                            <td><img src="assets/img/produk/<?php echo $nota['foto_produk'];?>" width="60"></td>
                             <td>RP. <?php echo number_format($nota['harga_produk']);?></td>
                             <td><?php echo $nota['jumlah']; ?></td>
                             <td>
@@ -80,6 +81,13 @@ $detail = $ambil->fetch_assoc();
                         </tr>
                         <?php } ?>
                 </tbody>
+                <tfoot>
+
+                    <tr>
+                        <th class="text center-align" colspan="4">Total</th>
+                        <th>Rp. <?php echo number_format($detail['total_pembelian']);?></th>
+                    </tr>
+                </tfoot>
 
             </table>
 
