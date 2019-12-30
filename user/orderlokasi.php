@@ -95,6 +95,7 @@
 
     echo "<script>alert('Succes')</script>";
     echo "<script>location='index.php?p=home</script>";
+    header("location:index.php?p=home");
 
 	}
  ?>

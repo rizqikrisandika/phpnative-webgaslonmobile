@@ -80,6 +80,7 @@
                         <td><?php echo $cart['nama_produk'];?></td>
                         <td><?php echo $jumlah ?></td>
                         <td>Rp. <?php echo number_format($subsharga);?></td>
+                        <td><a href="index.php?p=deletecart&id=<?php echo $id_produk ?>"><i class="material-icons">cancel</i></a></td>
                     </tr>
                     <?php 
                                 $totalbelanja+=$subsharga; ?>
