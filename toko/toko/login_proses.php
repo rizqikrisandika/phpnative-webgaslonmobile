@@ -1,5 +1,5 @@
 <?php 
-session_start();
+
  
 // menghubungkan dengan koneksi
 include 'config/koneksi.php';

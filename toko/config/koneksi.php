@@ -1,5 +1,7 @@
 <?php
 
+
+
 $koneksi = mysqli_connect("localhost","root","","db_gaslon");
  
 // Check connection
