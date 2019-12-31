@@ -29,7 +29,7 @@
   							$db = mysqli_query($koneksi,"SELECT * FROM toko where email='".$_SESSION['email']."'");
 							$data = mysqli_fetch_assoc($db);
 					?>
-					<br><br>
+					
 	<div class="parent-pwafire">
 		<div class="profil">
 			<?php if ($data["gambar"]!=null) {?>
@@ -40,7 +40,7 @@
 				alt="recipe thumb"> <?php } ?>
 		</div>
 	</div>
-	<br><br>
+	<br>
 	<div class="main-div" align="center">
 
 		<form action="index.php?t=profil_update" method="post" enctype="multipart/form-data">
@@ -51,7 +51,7 @@
 			<input name="email" value="<?php echo $data['email']?>" type="email" class="validate" disabled>
 			<input name="nohp" placeholder="Phone" value="<?php echo $data['nohp']?>" type="text" class="validate">
 			<input name="alamat" placeholder="Address" value="<?php echo $data['alamat']?>" type="text" class="validate">
-			<br><br>
+			<br>
 			<button>Save</button>
 		</form>
 

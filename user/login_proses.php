@@ -1,4 +1,6 @@
 <?php 
+
+
  
 // menghubungkan dengan koneksi
 include 'config/koneksi.php';
@@ -18,7 +20,9 @@ $cek = mysqli_num_rows($db);
 if($cek != FALSE){
 	$_SESSION['user_name'] = $data['email'];
 	
-	header("location:index.php");
+	echo "<script>alert('Login Succes')</script>";
+    echo "<meta http-equiv='refresh' content='1;url=index.php'>";
+   
 }else{
 	header("location:index.php?pesan=gagal");
 }

@@ -133,7 +133,7 @@
 		<span align="center">Login</span>
 		</div>
 	  </nav>
-	  <br><br><br><br>
+	  <br><br>
 		<div class="main-div" align="center" >
 		<img style="margin-bottom: 25px;height:140px" src="assets/img/profil/login.png" alt="recipe thumb"><br>
 		<br><br>

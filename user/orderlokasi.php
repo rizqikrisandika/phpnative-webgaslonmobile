@@ -106,8 +106,8 @@
 	unset($_SESSION["cart"]);
 
     echo "<script>alert('Succes')</script>";
-    echo "<script>location='index.php?p=home</script>";
-    header("location:index.php?p=history");
+     echo "<meta http-equiv='refresh' content='1;url=index.php?p=history'>";
+   
 
 	}
  ?>

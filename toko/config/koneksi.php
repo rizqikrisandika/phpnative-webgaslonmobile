@@ -2,7 +2,7 @@
 
 
 
-$koneksi = mysqli_connect("localhost","root","","db_gaslon");
+$koneksi = mysqli_connect("localhost","id12086773_gaslon","gaslonid","id12086773_gaslon");
  
 // Check connection
 if (mysqli_connect_error()){

@@ -19,7 +19,8 @@ $cek = mysqli_num_rows($db);
 if($cek != FALSE){
 	$_SESSION['email'] = $data['email'];
 	
-	header("location:index.php");
+	echo "<script>alert('Login Succes')</script>";
+    echo "<meta http-equiv='refresh' content='1;url=index.php'>";
 }else{
 	header("location:index.php?pesan=gagal");
 }

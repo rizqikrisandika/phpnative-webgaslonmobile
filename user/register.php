@@ -21,17 +21,17 @@
       <span align="center">Register</span>
 		</div>
     </nav>
-    <br><br>
+    <br>
 		<div class="main-div" align="center" >
       
 		<img style="margin-bottom: 25px;height:140px" src="assets/img/profil/login.png" alt="recipe thumb"><br>
-    <br><br>
+    <br>
     <form action="index.php?p=register_proses" method="post">
 				<input name="nama" placeholder="Gaslon Id"  type="text" class="validate">
 				<input name="email" placeholder="gaslon@gmail.com"  type="email" class="validate">
 				<input name="password" placeholder="*****" type="password" class="validate">
 				<input name="nohp" placeholder="08123456789" type="text" class="validate">
-				<br><br>
+				<br>
 				<button>Buat Akun</button>
 			</form>
 			
